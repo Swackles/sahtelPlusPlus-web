@@ -6,7 +6,6 @@ router.get('/', function(req, res, next) {
   require("./../api/tunniplaan")(null, (data, err) => {
     if (err) throw Error(err);
     else {
-      console.log(data);
       res.render('index', { title: 'Tunniplaan', data: JSON.parse(data) });
     }
   });

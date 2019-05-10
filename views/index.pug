@@ -28,6 +28,8 @@ block content
         - lastDate = item.date
         tr(class="date")
           td(colspan="6")= item.date
+      tr
+        td(colspan="6")= `${item.group} ${item.course}. kursus`
       tr(class="schedule")
         - let start = new Date(item.classStart);
         - let end = new Date(item.classEnd);
@@ -40,8 +42,8 @@ block content
         if (item.description != "")
           - homework_count = 1;
         td= homework_count
-      tr(class="homework" colspan="6")
-        td= item.description
+      tr(class="homework")
+        td(colspan="6")= item.description
         
 
         
