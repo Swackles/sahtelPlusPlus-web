@@ -1,0 +1,27 @@
+.date {
+    background-color: #B71234;
+    color: #ffffff;
+}
+
+.homework {
+    display: none;
+}
+  
+table {
+    width: 100%;
+    margin: 20px auto;
+    table-layout: auto;
+}
+
+table, td, th {
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0px 10px 10px 10px;
+    text-align: center;
+}
+
+.schedule:last-child {
+    width: 25px;
+}
