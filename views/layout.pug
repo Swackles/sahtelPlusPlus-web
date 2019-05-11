@@ -3,9 +3,18 @@ html
   head
     title= title
 
+    block meta
+    meta(charset='UTF-8')
+    meta(class="google_auth" name='google-signin-scope' content='profile email')
+    meta(class="google_auth" name='google-signin-client_id' content=`${AUTH_CLIENT_ID}.apps.googleusercontent.com`)
+
     block stylesheet
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')      
 
     block script
+    script(src='/javascripts/jquery-3.4.1.js')
+    script(src='https://apis.google.com/js/platform.js' async defer)
+    script(src='/javascripts/google.js')
   body
-    block content
+    include includes/_header.pug
+    block body

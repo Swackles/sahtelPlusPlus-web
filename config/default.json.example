@@ -5,5 +5,8 @@
     "settings": { 
         "env": "development",
         "port": "11000"
+    },
+    "google": {
+        "client_id": ""
     }
 }

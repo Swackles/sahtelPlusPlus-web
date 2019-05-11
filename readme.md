@@ -37,4 +37,4 @@ Now going to your browser and into the address bar entering `localhost:<port>` y
 * [Pug](https://pugjs.org/api/getting-started.html) - Template engine
 
 ## Further reading
-* [API endpoints](https://github.com/Swackles/sahtelPlusPlus-web/blob/master/api.md)
+* [API endpoints](https://github.com/Swackles/sahtelPlusPlsus-API/blob/master/README.md)
