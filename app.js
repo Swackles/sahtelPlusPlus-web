@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -6,7 +8,7 @@ const logger = require('morgan');
 const config = require('config');
 
 let app = new express();
-const listener = app.listen(parseInt(config.get("settings.port")) || 3000, err => {
+const listener = app.listen(parseInt(config.get("server.port")) || 3000, err => {
   if (err) console.log(err);
   else console.log(`App started on port: ${listener.address().port}`);
 });
@@ -37,7 +39,7 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
-  res.locals.error = config.get("settings.env") === 'development' ? err : {};
+  res.locals.error = process.env.NODE_ENV === 'develop' ? err : {};
 
   // render the error page
   res.status(err.status || 500);

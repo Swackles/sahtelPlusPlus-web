@@ -1,5 +1,6 @@
 const config = require('config');
-const axios = require("axios");
+const axios = require('axios');
+const address = `${config.get('api.address')}:${config.get('api.port')}`;
 
 async function get(path) {
     let response = await axios.get(path);
@@ -13,28 +14,28 @@ async function post(path, data) {
 
 exports.schedule = async (args) => {
     if (args == undefined) {
-        return await get(`${config.get("api.host")}/tunniplaan`);
+        return await get(`${address}/tunniplaan`);
     } else {
-        post(`${config.get("api.host")}/tunniplaan`, args);
+        post(`${address}/tunniplaan`, args);
     }
 }
 
 exports.auth = (args, callback) => {
-    post(args, `${config.get("api.host")}/user/auth`, callback);
+    post(args, `${address}/user/auth`, callback);
 }
 
 exports.subjects = async () => {
-    return await get(`${config.get("api.host")}/subject`);
+    return await get(`${address}/subject`);
 }
 
 exports.teachers = async () => {
-    return await get(`${config.get("api.host")}/teacher`);
+    return await get(`${address}/teacher`);
 }
 
 exports.rooms = async () => {
-    return await get(`${config.get("api.host")}/room`);
+    return await get(`${address}/room`);
 }
 
 exports.classes = async () => {
-    return await get(`${config.get("api.host")}/class`);
+    return await get(`${address}/class`);
 }
