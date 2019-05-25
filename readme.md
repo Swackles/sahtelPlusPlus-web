@@ -1,5 +1,6 @@
 <h1 align="center"> Sahtel++</h1>
 
+[![Codeship Status for Swackles/sahtelPlusPlus-web](https://app.codeship.com/projects/985cf6c0-6060-0137-ca7e-427ad6051c19/status?branch=master)](https://app.codeship.com/projects/344061)
 
 This project is the web client for Sahtel++. Connects to the [Sahtel++ API](https://github.com/Swackles/sahtelPlusPlsus-API)
 
