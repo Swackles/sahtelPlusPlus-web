@@ -13,7 +13,7 @@ router.get('/', async (req, res, next) => {
     class: await sahtelPlusPlus.classes()
   }
 
-  res.render('index', { title: 'Tunniplaan', data: data, AUTH_CLIENT_ID:  config.get('google.client_id')});
+  res.render('index', { title: 'Tunniplaan', data: data, AUTH_CLIENT_ID:  process.env.GOOGLE_TOKEN});
 });
 
 module.exports = router;

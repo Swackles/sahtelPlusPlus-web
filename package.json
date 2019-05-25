@@ -2,14 +2,14 @@
   "name": "SahtelPlusPlus",
   "version": "1.0.0",
   "private": true,
-  "description": "Frontend of the HK System",
+  "description": "Frontend of the Sahtel++",
   "main": "app.js",
   "devDependencies": {},
   "author": "Sven Erik Rebane",
   "license": "MIT",
   "scripts": {
-    "start": "pm2 start app.js name=\"Sahtel++-Web\"",
-    "restart": "pm2 restart all"
+    "start": "pm2 start app.js -f --name=\"sahtelPlusPlus-Web\"",
+    "restart": "pm2 restart sahtelPlusPlus-web"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -17,9 +17,11 @@
     "config": "^3.1.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
+    "dotenv": "^8.0.0",
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
+    "pm2": "^3.5.1",
     "pug": "2.0.0-beta11"
   }
 }
