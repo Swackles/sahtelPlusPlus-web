@@ -1,9 +1,0 @@
-{
-    "api": {
-        "host": "178.62.104.212:9000"
-    },
-    "settings": { 
-        "env": "development",
-        "port": "11000"
-    }
-}

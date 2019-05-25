@@ -25,7 +25,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 let routeHandler = (route) => { return require(`./routes/${route}`)}
 
 app.use('/', routeHandler('index'));
-app.use('/users', routeHandler('users.js'));
+app.use('/user', routeHandler('user.js'));
+app.use('/schedule', routeHandler('schedule'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

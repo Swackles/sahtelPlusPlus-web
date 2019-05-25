@@ -35,6 +35,9 @@ Now going to your browser and into the address bar entering `localhost:<port>` y
 * [Express](https://www.npmjs.com/package/express) - The web framework used
 * [Config](https://www.npmjs.com/package/config) - Used to get data from config file
 * [Pug](https://pugjs.org/api/getting-started.html) - Template engine
-
+* [Axios](https://www.npmjs.com/package/axios) - To make http requests to API
+* [jQuery](https://jquery.com/) - Javascript library
+* [Air Datepicker](http://t1m0n.name/air-datepicker/docs/) - to make beutiful datepickers
+* [Chosen](https://harvesthq.github.io/chosen/) - To make beutiful selectors
 ## Further reading
-* [API endpoints](https://github.com/Swackles/sahtelPlusPlus-web/blob/master/api.md)
+* [API endpoints](https://github.com/Swackles/sahtelPlusPlsus-API/blob/master/README.md)

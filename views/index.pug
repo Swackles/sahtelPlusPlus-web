@@ -1,49 +1,11 @@
 extends layout
 
 block stylesheet
-  link(rel='stylesheet', href='/stylesheets/tunniplaan.css')
+  <link rel="stylesheet" href="/stylesheets/tunniplaan.css"/>
 
-block content
-  h1= title
-  p Welcome to #{title}
+block body
+  include schedule/filters.pug
 
-  - let lastDate, lastGroup;
-  - let days = ['Esmaspäev', 'Teisipäev', 'Kolmapäev', 'Neljapäev', 'Reede', 'Laupäev', 'Pühapäev'];
-  - let months = ['Jan', 'Veb', 'Märts', 'April', 'Mai', 'Jun', 'Jul', 'Sep', 'Okt', 'Nov', 'Det'];
+  div#infoArea
 
-  table
-    tr
-      th Aeg
-      th Aine
-      th Aine kood
-      th Õppejõud
-      th Klass
-      th Kodutöid 
-    each item in data
-      - let date = new Date(item.date)
-      - item.date = `${days[date.getDay() - 1]}, ${date.getDate()}. ${months[date.getMonth()]} ${date.getFullYear()}`
-      tr
-
-      if lastDate != item.date
-        - lastDate = item.date
-        tr(class="date")
-          td(colspan="6")= item.date
-      tr
-        td(colspan="6")= `${item.group} ${item.course}. kursus`
-      tr(class="schedule")
-        - let start = new Date(item.classStart);
-        - let end = new Date(item.classEnd);
-        td= `${start.getHours()}:${start.getMinutes()}-${end.getHours()}:${end.getMinutes()}`
-        td= item.name
-        td= item.code
-        td= item.teacher
-        td= item.room
-        - let homework_count = 0;
-        if (item.description != "")
-          - homework_count = 1;
-        td= homework_count
-      tr(class="homework")
-        td(colspan="6")= item.description
-        
-
-        
+  table#scheduleTable

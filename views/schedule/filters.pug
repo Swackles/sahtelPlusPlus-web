@@ -1,0 +1,30 @@
+block script
+    script(src='/javascripts/filter.js')
+
+block stylesheet
+    link(rel="stylesheet" href="/stylesheets/filter.css")
+
+form#schedule_filter.flex-container.filter(onsubmit="return false")
+    div.flex-container.flex-child
+
+            input.chosen-datepicker.flex-child(name="startDate" type="text" placeholder="Vali algus kuupäev...")
+            input.chosen-datepicker.flex-child(name="endDate" type="text" placeholder="Vali lõpp kuupäev...")
+
+    div.flex-container.flex-child
+        select#teacher.chosen-select.flex-child(name="teacher" multiple data-placeholder="Vali õppejõud...")
+            each item in data.teacher
+                option(value=`${item.id}`)= item.name
+
+        select#rooms.chosen-select.flex-child(name="room" multiple data-placeholder="Vali ruumid...")
+            each item in data.room
+                option(value=`${item.id}`)= item.name
+
+        select#classes.chosen-select.flex-child(name="class" multiple data-placeholder="Valid rühm...")
+            each item in data.class
+                option(value=`${item.id}`)= item.name
+
+        select#subjects.chosen-select.flex-child(name="subject" multiple data-placeholder="Vali aine...")
+            each item in data.subject
+                option(value=`${item.id}`)= item.name
+
+    button.submit-filter Otsi

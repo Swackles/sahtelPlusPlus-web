@@ -1,14 +1,19 @@
 const express = require('express');
-var router = express.Router();
+const config = require('config');
+const sahtelPlusPlus = require('../api/SahtelPlusPlus');
+let router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  require("./../api/tunniplaan")(null, (data, err) => {
-    if (err) throw Error(err);
-    else {
-      res.render('index', { title: 'Tunniplaan', data: JSON.parse(data) });
-    }
-  });
+router.get('/', async (req, res, next) => {
+  let data = {
+    schedule: await sahtelPlusPlus.schedule(undefined),
+    subject: await sahtelPlusPlus.subjects(),
+    teacher: await sahtelPlusPlus.teachers(),
+    room: await sahtelPlusPlus.rooms(),
+    class: await sahtelPlusPlus.classes()
+  }
+
+  res.render('index', { title: 'Tunniplaan', data: data, AUTH_CLIENT_ID:  config.get('google.client_id')});
 });
 
 module.exports = router;
