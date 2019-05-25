@@ -1,9 +1,9 @@
 {
     "api": {
-        "host": "178.62.104.212:9000"
+        "host": "http://178.62.104.212:9000"
     },
     "settings": { 
-        "env": "development",
+        "env": "production",
         "port": "11000"
     },
     "google": {

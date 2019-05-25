@@ -8,13 +8,21 @@ html
     meta(class="google_auth" name='google-signin-scope' content='profile email')
     meta(class="google_auth" name='google-signin-client_id' content=`${AUTH_CLIENT_ID}.apps.googleusercontent.com`)
 
+    link(rel='stylesheet' href='/stylesheets/global.css')
+    link(rel='stylesheet' href='/stylesheets/chosen-1.8.7.jquery.min.css')
+    link(rel='stylesheet' href='/stylesheets/datepicker.min.css')
     block stylesheet
-    link(rel='stylesheet', href='/stylesheets/style.css')      
-
-    block script
-    script(src='/javascripts/jquery-3.4.1.js')
+    
+    script(src='/javascripts/jquery-3.4.1.min.js')
+    script(src='/javascripts/chosen-1.8.7.jquery.min.js')
+    script(src='/javascripts/datepicker.min.js')
+    script(src='/javascripts/i18n/et.js')
     script(src='https://apis.google.com/js/platform.js' async defer)
     script(src='/javascripts/google.js')
+    script(src='/javascripts/global.js')
+    block script
+
   body
-    include includes/_header.pug
-    block body
+    include layout/_header.pug
+    div.body
+      block body

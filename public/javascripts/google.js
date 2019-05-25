@@ -1,5 +1,7 @@
+var user;
 function onSignIn(googleUser) {
-    const user = googleUser.getBasicProfile();
+    user = googleUser.getBasicProfile();
+    console.log(user);
 
     if (user.getEmail().split("@")[1] != "tlu.ee") {
         alert("Palun kasuta oma TLU emaili sisse logimiseks");
@@ -7,14 +9,25 @@ function onSignIn(googleUser) {
         let auth = gapi.auth2.getAuthInstance();
         auth.signOut();
     } else {
-        alert("Edukalt sisse logitud");
-
-        $('.google').addClass("hidden");
+        $('.g-signin2').addClass("hidden");
 
         $('.user').removeClass("hidden");
         $('#user #name').append(user.getName());
         $('#user #image').attr('src', user.getImageUrl());
     }
     let id_token = googleUser.getAuthResponse().id_token;
-    console.log("ID Token: " + id_token);
+    authUser(id_token);
   }
+
+function authUser(token) {
+    $.ajax({
+        url: '/user/auth',
+        type: 'POST',
+        contentType: 'application/json',
+        dataType: 'json',
+        data: JSON.stringify({ googleToken: token }),
+        success: (data) => {
+            console.log(data);
+        }
+    });
+}
