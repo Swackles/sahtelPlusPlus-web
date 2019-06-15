@@ -7,8 +7,8 @@ block stylesheet
 form#schedule_filter.flex-container.filter(onsubmit="return false")
     div.flex-container.flex-child
 
-            input.chosen-datepicker.flex-child(name="startDate" type="text" placeholder="Vali algus kuupäev...")
-            input.chosen-datepicker.flex-child(name="endDate" type="text" placeholder="Vali lõpp kuupäev...")
+            input.chosen-datepicker.flex-child(autocomplete="off" name="startDate" type="text" placeholder="Vali algus kuupäev...")
+            input.chosen-datepicker.flex-child(autocomplete="off" name="endDate" type="text" placeholder="Vali lõpp kuupäev...")
 
     div.flex-container.flex-child
         select#teacher.chosen-select.flex-child(name="teacher" multiple data-placeholder="Vali õppejõud...")

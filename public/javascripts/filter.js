@@ -53,8 +53,10 @@ function getSchedule() {
             success: (result) => {
                 createNotification('success', 'Tunniplaan edukalt laetud');
                 $('#scheduleTable').replaceWith(result);
+                console.log(result);
             },
-            error: () => {
+            error: (e) => {
+                console.log(e);
                 createNotification('error', 'Ei olnud võimalik tunniplaani laadida');
             }
         });

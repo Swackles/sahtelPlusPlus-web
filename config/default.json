@@ -1,6 +1,6 @@
 {
     "api": {
-        "address": "http://178.62.104.212",
+        "address": "http://localhost",
         "port": "9000"
     },
     "server": {

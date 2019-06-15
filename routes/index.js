@@ -6,7 +6,6 @@ let router = express.Router();
 /* GET home page. */
 router.get('/', async (req, res, next) => {
   let data = {
-    schedule: await sahtelPlusPlus.schedule(undefined),
     subject: await sahtelPlusPlus.subjects(),
     teacher: await sahtelPlusPlus.teachers(),
     room: await sahtelPlusPlus.rooms(),

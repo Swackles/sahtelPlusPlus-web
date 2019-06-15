@@ -3,20 +3,28 @@ const axios = require('axios');
 const address = `${config.get('api.address')}:${config.get('api.port')}`;
 
 async function get(path) {
-    let response = await axios.get(path);
-    return response.data
+    try {
+        let {data} = await axios.get(path);
+        return data;
+    } catch(e) {
+        return [];
+    }
 }
 
-async function post(path, data) {
-    let response = await axios.post(path, data);
-    return response.data
+async function post(path, reqData) {
+    try {
+        let {data} = await axios.post(path, reqData);
+        return data;
+    } catch (e) {
+        return [];
+    }
 }
 
 exports.schedule = async (args) => {
     if (args == undefined) {
         return await get(`${address}/tunniplaan`);
     } else {
-        post(`${address}/tunniplaan`, args);
+        return await post(`${address}/tunniplaan`, args);
     }
 }
 
