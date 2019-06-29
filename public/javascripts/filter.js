@@ -17,15 +17,20 @@ function getFilterValue(query) {
 
 function getOptions(useDefault = false) {
     let options = {
-        dateStart: getFilterValue('startDate'),
-        dateEnd: getFilterValue('endDate'),
+        startDate: getFilterValue('startDate'),
+        endDate: getFilterValue('endDate'),
         classes: getFilterValue('class'),
         subjects: getFilterValue('subject'),
         teachers: getFilterValue('teacher'),
         rooms: getFilterValue('room')
     }
 
-    options.checked = options.dateStart != "" || options.dateEnd != "";
+    options.checked = options.dateStart == "" && options.dateEnd == "";
+
+    if (!options.checked) {
+        options.startDate = getDateFormat();
+        options.endDate = getDateFormat();
+    }
 
     if (useDefault) {
         options.subjects = localStorage.getItem('subjects');
@@ -41,6 +46,10 @@ function getOptions(useDefault = false) {
     localStorage.setItem('classes', options.classes);
 
     return options
+}
+
+function getDateFormat(date = new Date()) {
+    return `${("0" + date.getDate()).slice(-2)}.${("0" + date.getMonth()).slice(-2)}.${date.getFullYear()}`
 }
 
 function getSchedule() {

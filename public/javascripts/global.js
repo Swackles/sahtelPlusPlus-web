@@ -8,7 +8,9 @@ $(document).ready(() => {
     });
 
     $('.chosen-datepicker').datepicker({
-        language: 'et'
+        language: 'et',
+        firstDay: '1',
+        dateFormat: 'dd.mm.yyyy'
     })
 });
 
