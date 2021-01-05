@@ -12,7 +12,7 @@
     "restart": "pm2 restart sahtelPlusPlus-web"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "chosen-js": "^1.8.7",
     "config": "^3.1.0",
     "cookie-parser": "~1.4.3",
